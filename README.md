@@ -25,7 +25,7 @@ Esses princípios são ensinados em cursos, livros (como *Clean Code* e *Agile S
 
 O acrônimo **SOLID** representa cinco princípios:
 
-## 📌 S — Single Responsibility Principle (Princípio da Responsabilidade Única)
+## S — Single Responsibility Principle (Princípio da Responsabilidade Única)
 
 > **"Uma classe deve ter apenas um motivo para mudar."**
 
@@ -55,7 +55,7 @@ class EmailService {
 
 ---
 
-## 📌 O — Open/Closed Principle (Princípio Aberto/Fechado)
+##  O — Open/Closed Principle (Princípio Aberto/Fechado)
 
 > **"Entidades devem estar abertas para extensão, mas fechadas para modificação."**
 
@@ -82,7 +82,7 @@ class Carrinho {
 
 ---
 
-## 📌 L — Liskov Substitution Principle (Princípio da Substituição de Liskov)
+##  L — Liskov Substitution Principle (Princípio da Substituição de Liskov)
 
 > **"Classes derivadas devem poder ser substituídas por suas classes base sem quebrar o código."**
 
@@ -119,7 +119,7 @@ class PatoDeBorracha implements Pato {
 
 ---
 
-## 📌 I — Interface Segregation Principle (Princípio da Segregação de Interface)
+##  I — Interface Segregation Principle (Princípio da Segregação de Interface)
 
 > **"Nenhuma classe deve ser forçada a depender de métodos que não utiliza."**
 
@@ -162,7 +162,7 @@ class Humano implements Trabalhador, Comedor {
 
 ---
 
-## 📌 D — Dependency Inversion Principle (Princípio da Inversão de Dependência)
+##  D — Dependency Inversion Principle (Princípio da Inversão de Dependência)
 
 > **"Dependa de abstrações, não de implementações."**
 
@@ -204,15 +204,16 @@ class UsuarioService {
 
 ---
 
-## ✅ Conclusão
+## Por que usar os Princípios SOLID?
 
-Os princípios **SOLID** são fundamentais para quem deseja evoluir na carreira de desenvolvedor, especialmente na construção de sistemas escaláveis e sustentáveis. Eles não são regras rígidas, mas guias para um código mais limpo e de qualidade.
+Usar os princípios SOLID ajuda a escrever códigos mais limpos, fáceis de entender, testar e manter. Eles reduzem o acoplamento entre componentes, melhoram a organização do sistema e tornam as mudanças futuras mais seguras e simples.
 
-> 💡 *Estudar e aplicar SOLID é um investimento na saúde do seu código!*
+>  Com SOLID, seu código se torna mais profissional e preparado para crescer com qualidade.
+
 
 ---
 
-## 📚 Referências
+## Referências
 
 - Clean Code (Robert C. Martin)
 - [Artigo de Uncle Bob](https://blog.cleancoder.com)
