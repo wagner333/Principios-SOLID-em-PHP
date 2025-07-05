@@ -238,28 +238,23 @@ Aqui estão os exemplos práticos para cada um dos princípios **SOLID** de desi
 solid-exemplos/
 │
 ├── S-SingleResponsibility/
-│ ├── Usuario.php
-│ └── README.md
+│   └── Usuario.php
 │
 ├── O-OpenClosed/
-│ ├── Desconto.php
-│ ├── Carrinho.php
-│ └── README.md
+│   ├── Desconto.php
+│   └── Carrinho.php
 │
 ├── L-LiskovSubstitution/
-│ ├── Pato.php
-│ ├── PatoDeBorracha.php
-│ └── README.md
+│   ├── Pato.php
+│   └── PatoDeBorracha.php
 │
 ├── I-InterfaceSegregation/
-│ ├── Trabalhador.php
-│ ├── Comedor.php
-│ └── README.md
+│   ├── Trabalhador.php
+│   └── Comedor.php
 │
 └── D-DependencyInversion/
-├── Database.php
-├── MySQLDatabase.php
-└── README.md
+    ├── Database.php
+    └── MySQLDatabase.php
 ```
 
 ### 1. **S - Single Responsibility Principle (SRP)**
