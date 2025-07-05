@@ -3,6 +3,26 @@
 
 Os princípios **SOLID** são um conjunto de diretrizes da programação orientada a objetos, criadas por Robert C. Martin (também conhecido como Uncle Bob), que ajudam a escrever um código mais limpo, compreensível, escalável e de fácil manutenção.
 
+#  História dos Princípios SOLID
+
+Os princípios SOLID surgiram como uma resposta aos desafios da programação orientada a objetos (OOP) em sistemas complexos. Eles foram formulados por **Robert C. Martin**, mais conhecido como **Uncle Bob**, um dos nomes mais influentes no mundo do desenvolvimento de software.
+
+Durante as décadas de 1980 e 1990, a comunidade de desenvolvedores começou a perceber que sistemas mal estruturados se tornavam difíceis de manter, testar e escalar. Mesmo com os conceitos de orientação a objetos sendo amplamente utilizados, ainda era comum encontrar códigos acoplados, com responsabilidades misturadas e difíceis de modificar sem causar novos bugs.
+
+Foi nesse contexto que **Uncle Bob**, inspirado por diversas boas práticas da engenharia de software, consolidou cinco princípios fundamentais para guiar o design de software orientado a objetos. Esses princípios foram reunidos no acrônimo **SOLID** por **Michael Feathers**, colaborador próximo de Uncle Bob.
+
+Desde então, os princípios SOLID se tornaram uma base teórica e prática essencial para:
+
+- Projetar sistemas mais modulares e reutilizáveis.
+- Melhorar a legibilidade e manutenibilidade do código.
+- Facilitar testes automatizados e desenvolvimento ágil.
+
+Esses princípios são ensinados em cursos, livros (como *Clean Code* e *Agile Software Development*), e aplicados em projetos reais por empresas do mundo inteiro.
+
+>  O SOLID não é uma regra rígida, mas um **guia poderoso** para criar software de qualidade, com menos dívidas técnicas e mais valor a longo prazo.
+
+---
+
 O acrônimo **SOLID** representa cinco princípios:
 
 ## 📌 S — Single Responsibility Principle (Princípio da Responsabilidade Única)
