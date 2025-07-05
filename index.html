@@ -1,1 +1,373 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Princípios SOLID em PHP</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .solid-art {
+            font-family: monospace;
+            white-space: pre;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 12px;
+            line-height: 1.2;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        h3 {
+            margin-top: 20px;
+        }
+        .principle-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .bad-example, .good-example {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .bad-example {
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+        }
+        .good-example {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .folder-structure {
+            font-family: monospace;
+            white-space: pre;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .reference {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Princípios SOLID em PHP</h1>
+        <div class="solid-art">
+╔══════╗ ╔══════╗ ╔══════╗ ╔══════╗ ╔══════╗
+║  SSS ║ ║ OOOO ║ ║ L    ║ ║ IIII ║ ║ DDDD ║
+║ S    ║ ║O    O║ ║ L    ║ ║  II  ║ ║D    D║
+║  SSS ║ ║O    O║ ║ L    ║ ║  II  ║ ║D    D║
+║     S║ ║O    O║ ║ L    ║ ║  II  ║ ║D    D║
+║ SSSS ║ ║ OOOO ║ ║ LLLLL║ ║ IIII ║ ║ DDDD ║
+╚══════╝ ╚══════╝ ╚══════╝ ╚══════╝ ╚══════╝
+        </div>
+    </header>
+
+    <section>
+        <h2>O que são os Princípios SOLID?</h2>
+        <p>Os princípios SOLID são um conjunto de diretrizes da programação orientada a objetos, criadas por Robert C. Martin (também conhecido como Uncle Bob), que ajudam a escrever um código mais limpo, compreensível, escalável e de fácil manutenção.</p>
+    </section>
+
+    <section>
+        <h2>História dos Princípios SOLID</h2>
+        <p>Os princípios SOLID surgiram como uma resposta aos desafios da programação orientada a objetos (OOP) em sistemas complexos. Eles foram formulados por Robert C. Martin, mais conhecido como Uncle Bob, um dos nomes mais influentes no mundo do desenvolvimento de software.</p>
+        
+        <p>Durante as décadas de 1980 e 1990, a comunidade de desenvolvedores começou a perceber que sistemas mal estruturados se tornavam difíceis de manter, testar e escalar. Mesmo com os conceitos de orientação a objetos sendo amplamente utilizados, ainda era comum encontrar códigos acoplados, com responsabilidades misturadas e difíceis de modificar sem causar novos bugs.</p>
+        
+        <p>Foi nesse contexto que Uncle Bob, inspirado por diversas boas práticas da engenharia de software, consolidou cinco princípios fundamentais para guiar o design de software orientado a objetos. Esses princípios foram reunidos no acrônimo SOLID por Michael Feathers, colaborador próximo de Uncle Bob.</p>
+        
+        <p>Desde então, os princípios SOLID se tornaram uma base teórica e prática essencial para:</p>
+        <ul>
+            <li>Projetar sistemas mais modulares e reutilizáveis</li>
+            <li>Melhorar a legibilidade e manutenibilidade do código</li>
+            <li>Facilitar testes automatizados e desenvolvimento ágil</li>
+        </ul>
+        
+        <p>Esses princípios são ensinados em cursos, livros (como Clean Code e Agile Software Development), e aplicados em projetos reais por empresas do mundo inteiro.</p>
+        
+        <p><strong>O SOLID não é uma regra rígida, mas um guia poderoso para criar software de qualidade, com menos dívidas técnicas e mais valor a longo prazo.</strong></p>
+    </section>
+
+    <section>
+        <h2>Os 5 Princípios SOLID</h2>
+        
+        <div class="principle-card">
+            <h3>S — Single Responsibility Principle (Princípio da Responsabilidade Única)</h3>
+            <p><em>"Uma classe deve ter apenas um motivo para mudar."</em></p>
+            <p>Cada classe deve ter apenas uma responsabilidade/função bem definida. Isso facilita a manutenção e evita efeitos colaterais inesperados.</p>
+            
+            <div class="bad-example">
+                <h4>Exemplo ruim:</h4>
+                <pre><code>class Usuario {
+    public function salvar() { /* salva no banco */ }
+    public function validarEmail() { /* valida o e-mail */ }
+    public function enviarEmailDeBoasVindas() { /* envia e-mail */ }
+}</code></pre>
+            </div>
+            
+            <div class="good-example">
+                <h4>Exemplo bom:</h4>
+                <pre><code>class Usuario { /* dados do usuário */ }
+
+class UsuarioRepository {
+    public function salvar(Usuario $usuario) { /* salvar no banco */ }
+}
+
+class EmailService {
+    public function enviarBoasVindas(Usuario $usuario) { /* envia e-mail */ }
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="principle-card">
+            <h3>O — Open/Closed Principle (Princípio Aberto/Fechado)</h3>
+            <p><em>"Entidades devem estar abertas para extensão, mas fechadas para modificação."</em></p>
+            <p>Você deve poder adicionar comportamentos a uma classe sem modificá-la diretamente, geralmente usando herança ou interfaces.</p>
+            
+            <div class="good-example">
+                <h4>Exemplo:</h4>
+                <pre><code>interface Desconto {
+    public function aplicar(float $valor): float;
+}
+
+class DescontoNatal implements Desconto {
+    public function aplicar(float $valor): float {
+        return $valor * 0.9;
+    }
+}
+
+class Carrinho {
+    public function calcular(Desconto $desconto, float $valor): float {
+        return $desconto->aplicar($valor);
+    }
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="principle-card">
+            <h3>L — Liskov Substitution Principle (Princípio da Substituição de Liskov)</h3>
+            <p><em>"Classes derivadas devem poder ser substituídas por suas classes base sem quebrar o código."</em></p>
+            <p>Se B herda de A, você deve poder usar B no lugar de A sem que o programa quebre.</p>
+            
+            <div class="bad-example">
+                <h4>Exemplo ruim:</h4>
+                <pre><code>class Pato {
+    public function voar() { /* voa */ }
+}
+
+class PatoDeBorracha extends Pato {
+    public function voar() {
+        throw new Exception("Não posso voar!");
+    }
+}</code></pre>
+            </div>
+            
+            <div class="good-example">
+                <h4>Exemplo bom:</h4>
+                <pre><code>interface Pato {
+    public function nadar();
+}
+
+class PatoVoador implements Pato {
+    public function nadar() {}
+    public function voar() {}
+}
+
+class PatoDeBorracha implements Pato {
+    public function nadar() {}
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="principle-card">
+            <h3>I — Interface Segregation Principle (Princípio da Segregação de Interface)</h3>
+            <p><em>"Nenhuma classe deve ser forçada a depender de métodos que não utiliza."</em></p>
+            <p>Crie interfaces específicas ao invés de uma única interface genérica e pesada.</p>
+            
+            <div class="bad-example">
+                <h4>Exemplo ruim:</h4>
+                <pre><code>interface Trabalhador {
+    public function trabalhar();
+    public function comer();
+}
+
+class Robô implements Trabalhador {
+    public function trabalhar() {}
+    public function comer() {
+        // Robôs não comem!
+    }
+}</code></pre>
+            </div>
+            
+            <div class="good-example">
+                <h4>Exemplo bom:</h4>
+                <pre><code>interface Trabalhador {
+    public function trabalhar();
+}
+
+interface Comedor {
+    public function comer();
+}
+
+class Robô implements Trabalhador {
+    public function trabalhar() {}
+}
+
+class Humano implements Trabalhador, Comedor {
+    public function trabalhar() {}
+    public function comer() {}
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="principle-card">
+            <h3>D — Dependency Inversion Principle (Princípio da Inversão de Dependência)</h3>
+            <p><em>"Dependa de abstrações, não de implementações."</em></p>
+            <p>Classes de alto nível não devem depender de classes de baixo nível diretamente. Ambas devem depender de interfaces.</p>
+            
+            <div class="bad-example">
+                <h4>Exemplo ruim:</h4>
+                <pre><code>class MySQLDatabase {
+    public function conectar() {}
+}
+
+class UsuarioService {
+    private $db;
+
+    public function __construct() {
+        $this->db = new MySQLDatabase(); // Acoplamento forte
+    }
+}</code></pre>
+            </div>
+            
+            <div class="good-example">
+                <h4>Exemplo bom:</h4>
+                <pre><code>interface Database {
+    public function conectar();
+}
+
+class MySQLDatabase implements Database {
+    public function conectar() {}
+}
+
+class UsuarioService {
+    private $db;
+
+    public function __construct(Database $db) {
+        $this->db = $db; // Depende de abstração
+    }
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Por que usar os Princípios SOLID?</h2>
+        <p>Usar os princípios SOLID ajuda a escrever códigos mais limpos, fáceis de entender, testar e manter. Eles reduzem o acoplamento entre componentes, melhoram a organização do sistema e tornam as mudanças futuras mais seguras e simples.</p>
+        <p><strong>Com SOLID, seu código se torna mais profissional e preparado para crescer com qualidade.</strong></p>
+    </section>
+
+    <section class="reference">
+        <h2>Referências</h2>
+        <ul>
+            <li>Clean Code (Robert C. Martin)</li>
+            <li>Artigo de Uncle Bob</li>
+            <li>DevMedia: Princípios SOLID</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Exemplos dos Princípios SOLID</h2>
+        <p>Aqui estão os exemplos práticos para cada um dos princípios SOLID de design de software. Os exemplos estão organizados em pastas, cada uma representando um princípio. Dentro de cada pasta, você encontrará os arquivos PHP que demonstram o conceito.</p>
+        
+        <h3>Estrutura de Pastas</h3>
+        <div class="folder-structure">
+solid-exemplos/
+│
+├── S-SingleResponsibility/
+│   └── Usuario.php
+│
+├── O-OpenClosed/
+│   ├── Desconto.php
+│   └── Carrinho.php
+│
+├── L-LiskovSubstitution/
+│   ├── Pato.php
+│   └── PatoDeBorracha.php
+│
+├── I-InterfaceSegregation/
+│   ├── Trabalhador.php
+│   └── Comedor.php
+│
+└── D-DependencyInversion/
+    ├── Database.php
+    └── MySQLDatabase.php
+        </div>
+
+        <h3>1. S - Single Responsibility Principle (SRP)</h3>
+        <p>O Princípio da Responsabilidade Única afirma que uma classe deve ter apenas um motivo para mudar. Isso significa que cada classe deve ter uma única responsabilidade.</p>
+        <p><code>Usuario.php</code>: Exemplo de aplicação do SRP.</p>
+
+        <h3>2. O - Open/Closed Principle (OCP)</h3>
+        <p>O Princípio Aberto/Fechado diz que uma classe deve estar aberta para extensão, mas fechada para modificação.</p>
+        <p><code>Desconto.php</code>: Interface para aplicar descontos.</p>
+        <p><code>Carrinho.php</code>: Cálculo de valor com base no desconto aplicado.</p>
+
+        <h3>3. L - Liskov Substitution Principle (LSP)</h3>
+        <p>O Princípio da Substituição de Liskov estabelece que você deve poder substituir uma classe base por suas classes derivadas sem alterar o comportamento esperado do programa.</p>
+        <p><code>Pato.php</code>: Classe base Pato.</p>
+        <p><code>PatoDeBorracha.php</code>: Exemplo de aplicação do LSP.</p>
+
+        <h3>4. I - Interface Segregation Principle (ISP)</h3>
+        <p>O Princípio da Segregação de Interface afirma que nenhuma classe deve ser forçada a depender de métodos que não utiliza.</p>
+        <p><code>Trabalhador.php</code>: Interface para trabalhadores.</p>
+        <p><code>Comedor.php</code>: Interface para quem pode comer.</p>
+
+        <h3>5. D - Dependency Inversion Principle (DIP)</h3>
+        <p>O Princípio da Inversão de Dependência estabelece que as classes de alto nível não devem depender de classes de baixo nível, mas sim de abstrações.</p>
+        <p><code>Database.php</code>: Interface para conexão com o banco de dados.</p>
+        <p><code>MySQLDatabase.php</code>: Implementação de banco de dados MySQL.</p>
+
+        <p>Com essa estrutura e os exemplos, você será capaz de entender melhor os princípios SOLID e como aplicá-los em seus próprios projetos.</p>
+    </section>
+</body>
+</html>
