@@ -1,3 +1,14 @@
+<p align="center">
+<pre>
+╔══════╗ ╔══════╗ ╔══════╗ ╔══════╗ ╔══════╗
+║  SSS ║ ║ OOOO ║ ║ L    ║ ║ IIII ║ ║ DDDD ║
+║ S    ║ ║O    O║ ║ L    ║ ║  II  ║ ║D    D║
+║  SSS ║ ║O    O║ ║ L    ║ ║  II  ║ ║D    D║
+║     S║ ║O    O║ ║ L    ║ ║  II  ║ ║D    D║
+║ SSSS ║ ║ OOOO ║ ║ LLLLL║ ║ IIII ║ ║ DDDD ║
+╚══════╝ ╚══════╝ ╚══════╝ ╚══════╝ ╚══════╝
+</pre>
+</p>
 
 # Princípios SOLID
 
