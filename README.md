@@ -228,3 +228,84 @@ Usar os princípios SOLID ajuda a escrever códigos mais limpos, fáceis de ente
 - Clean Code (Robert C. Martin)
 - [Artigo de Uncle Bob](https://blog.cleancoder.com)
 - [DevMedia: Princípios SOLID](https://www.devmedia.com.br/principios-solid/)
+
+# Exemplos dos Princípios SOLID
+
+Aqui estão os exemplos práticos para cada um dos princípios **SOLID** de design de software. Os exemplos estão organizados em pastas, cada uma representando um princípio. Dentro de cada pasta, você encontrará os arquivos PHP que demonstram o conceito, além de um arquivo `README.md` com explicações e instruções.
+
+## Estrutura de Pastas
+```
+solid-exemplos/
+│
+├── S-SingleResponsibility/
+│ ├── Usuario.php
+│ └── README.md
+│
+├── O-OpenClosed/
+│ ├── Desconto.php
+│ ├── Carrinho.php
+│ └── README.md
+│
+├── L-LiskovSubstitution/
+│ ├── Pato.php
+│ ├── PatoDeBorracha.php
+│ └── README.md
+│
+├── I-InterfaceSegregation/
+│ ├── Trabalhador.php
+│ ├── Comedor.php
+│ └── README.md
+│
+└── D-DependencyInversion/
+├── Database.php
+├── MySQLDatabase.php
+└── README.md
+```
+
+### 1. **S - Single Responsibility Principle (SRP)**
+
+O **Princípio da Responsabilidade Única** afirma que uma classe deve ter apenas um motivo para mudar. Isso significa que cada classe deve ter uma única responsabilidade.
+
+- **`Usuario.php`**: Exemplo de violação do SRP.
+- **`UsuarioRepository.php`**: Refatoração para aplicar o SRP.
+
+---
+
+### 2. **O - Open/Closed Principle (OCP)**
+
+O **Princípio Aberto/Fechado** diz que uma classe deve estar aberta para extensão, mas fechada para modificação. Ou seja, você deve ser capaz de adicionar novos comportamentos a uma classe sem alterar a classe original.
+
+- **`Desconto.php`**: Interface para aplicar descontos.
+- **`Carrinho.php`**: Cálculo de valor com base no desconto aplicado.
+
+---
+
+### 3. **L - Liskov Substitution Principle (LSP)**
+
+O **Princípio da Substituição de Liskov** estabelece que você deve poder substituir uma classe base por suas classes derivadas sem alterar o comportamento esperado do programa.
+
+- **`Pato.php`**: Classe base `Pato`.
+- **`PatoDeBorracha.php`**: Exemplo de violação do LSP, onde a classe derivada `PatoDeBorracha` não substitui corretamente o comportamento de `Pato`.
+
+---
+
+### 4. **I - Interface Segregation Principle (ISP)**
+
+O **Princípio da Segregação de Interface** afirma que nenhuma classe deve ser forçada a depender de métodos que não utiliza. Ou seja, a interface deve ser específica para a necessidade do cliente.
+
+- **`Trabalhador.php`**: Interface para trabalhadores.
+- **`Comedor.php`**: Interface para quem pode comer.
+
+---
+
+### 5. **D - Dependency Inversion Principle (DIP)**
+
+O **Princípio da Inversão de Dependência** estabelece que as classes de alto nível não devem depender de classes de baixo nível, mas sim de abstrações (interfaces ou classes abstratas).
+
+- **`Database.php`**: Interface para conexão com o banco de dados.
+- **`MySQLDatabase.php`**: Implementação de banco de dados MySQL.
+
+---
+
+Com essa estrutura e os exemplos, você será capaz de entender melhor os princípios **SOLID** e como aplicá-los em seus próprios projetos.
+
